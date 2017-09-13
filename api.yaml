@@ -12,6 +12,9 @@ paths:
   /users:
     get:
       summary: Returns a list of users.
+      operationId: listUsers
+      tags:
+        - users
       description: Optional extended description in CommonMark or HTML.
       responses:
         '200':
@@ -22,10 +25,83 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-                examples:
-                  userExample:
-                    $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+              examples:
+                userExample:
+                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+    post:
+      summary: Create new user.
+      operationId: createUser
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                userExample:
+                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+      responses:
+        '201':
+          description: Successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                userExample:
+                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+  /users/{id}:
+    get:
+      summary: Gets a user by ID.
+      tags:
+        - users
+      parameters:
+        - name: id
+          in: path
+          description: The id of user to retrive
+          required: true
+          schema: 
+            type: string
+            format: uuid
+            example: 2653bf08-2332-464f-ad9f-89196ffb8d7c
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/User'
+              examples:
+                userExample:
+                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+    delete:
+      summary: Delete a user by ID.
+      tags:
+        - users
+      parameters:
+        - name: id
+          in: path
+          description: The id of the user to retrive
+          required: true
+          schema:
+            type: string
+            format: uuid
+            example: '2653bf08-2332-464f-ad9f-89196ffb8d7c'
+      responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/User'
+            examples:
+              userExample:
+                $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+
+
 components:
   schemas:
     User:
-      $ref: 'schemas/user.yaml#/components/schemas/User'
+      $ref: './schemas/user.yaml#/components/schemas/User'
