@@ -21,4 +21,4 @@ paths:
               schema:
                 type: object
                 items:
-                  $ref: './schemas/user.yaml'
+                  $ref: 'schemas/user.yaml'
