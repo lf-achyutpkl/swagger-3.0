@@ -1,0 +1,6 @@
+components:
+  schemas:
+    Users:
+      type: array
+      items:
+        $ref: 'user.yaml#/components/schemas/User'
