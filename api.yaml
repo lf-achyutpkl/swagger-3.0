@@ -24,7 +24,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Users'
               examples:
-                $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
+                userExample:
+                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
     post:
       summary: Create new user.
       operationId: createUser
@@ -36,9 +37,6 @@ paths:
             'application/json':
               schema:
                 $ref: '#/components/schemas/User'
-              examples:
-                userExample:
-                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
       responses:
         '201':
           description: Successfully created
@@ -46,9 +44,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-              examples:
-                userExample:
-                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
   /users/{id}:
     get:
       summary: Gets a user by ID.
@@ -70,9 +65,6 @@ paths:
             application/json:
               schema:
                 $ref: '#components/schemas/User'
-              examples:
-                userExample:
-                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
     delete:
       summary: Delete a user by ID.
       tags:
@@ -93,9 +85,6 @@ paths:
             application/json:
               schema:
                 $ref: '#components/schemas/User'
-              examples:
-                userExample:
-                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
 
 
 components:
