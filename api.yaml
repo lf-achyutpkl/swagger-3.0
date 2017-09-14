@@ -6,90 +6,11 @@ info:
 servers:
   - url: 'http://api.example.com/v1'
     description: 'Optional server description, e.g. Main (production) server'
-  - url: 'http://staging-api.example.com'
-    description: 'Optional server description, e.g. Internal staging server for testing'
 paths:
-  /users:
-    get:
-      summary: Returns a list of users.
-      operationId: listUsers
-      tags:
-        - users
-      description: Optional extended description in CommonMark or HTML.
-      responses:
-        '200':
-          description: A JSON array of user object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Users'
-              examples:
-                userExample:
-                  $ref: 'examples/userExample.yaml#/components/examples/userExample/value'
-    post:
-      summary: Create new user.
-      operationId: createUser
-      tags:
-        - users
-      requestBody:
-        required: true
-        content:
-            'application/json':
-              schema:
-                $ref: '#/components/schemas/User'
-      responses:
-        '201':
-          description: Successfully created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-  /users/{id}:
-    get:
-      summary: Gets a user by ID.
-      tags:
-        - users
-      parameters:
-        - name: id
-          in: path
-          description: The id of user to retrive
-          required: true
-          schema: 
-            type: string
-            format: uuid
-            example: 2653bf08-2332-464f-ad9f-89196ffb8d7c
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#components/schemas/User'
-    delete:
-      summary: Delete a user by ID.
-      tags:
-        - users
-      parameters:
-        - name: id
-          in: path
-          description: The id of the user to delete
-          required: true
-          schema:
-            type: string
-            format: uuid
-            example: '2653bf08-2332-464f-ad9f-89196ffb8d7c'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#components/schemas/User'
-
+  allOf:
+    - $ref: './apis/users.yaml#/users'
 
 components:
   schemas:
     User:
-      $ref: './schemas/user.yaml#/components/schemas/User'
-    Users:
-      $ref: './schemas/users.yaml#/components/schemas/Users'
+      $ref: './schemas/user.yaml#/User'
