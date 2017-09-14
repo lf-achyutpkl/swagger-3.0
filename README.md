@@ -46,7 +46,6 @@ By default, you can see Petstore API docs. To change it to your API specificatio
     * In general, to do so, you would need to pass a constructor URL of the specification you wish to make as the default.
         ```JS
             window.swaggerUi = new SwaggerUi({
-                url: url, // here goes correct url
-                …
+                url: 'https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/master/api.yaml'
             });
         ```
