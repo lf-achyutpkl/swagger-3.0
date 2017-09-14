@@ -8,7 +8,7 @@ servers:
     description: 'Optional server description, e.g. Main (production) server'
 paths:
   allOf:
-    - $ref: './apis/users.yaml#/users'
+    - $ref: './endpoints/users.yaml#/users'
 
 components:
   schemas:
