@@ -1,4 +1,0 @@
-Users:
-  type: array
-  items:
-    $ref: 'user.yaml#/User'
