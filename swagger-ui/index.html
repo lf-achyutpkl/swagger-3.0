@@ -80,10 +80,12 @@ window.onload = function() {
         "service2": "service2 yaml file path"
       }
     }
+
+    For single project, just add default url.
   */
   const YOUR_CONFIG_FILE_URL = 'https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/microservices/swagger-ui/config.json';
   
-  // Build a system
+  // Fetch configurations first then build the system.
   fetch(YOUR_CONFIG_FILE_URL)
     .then((response) => response.json())
     .then((config) => {
@@ -93,7 +95,7 @@ window.onload = function() {
       }
 
       const ui = SwaggerUIBundle({
-        url: "http://petstore.swagger.io/v2/swagger.json",
+        url: 'LEAVE IT BLANK',
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
