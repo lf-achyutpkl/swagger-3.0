@@ -1,5 +1,5 @@
 #-------------------------------
-# Error response formats.
+#  Response formats.
 #-------------------------------
 Error:
   code:
@@ -32,4 +32,3 @@ BadRequest:
         example:
           code: 400
           message: Bad Request
-          
