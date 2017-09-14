@@ -1,14 +1,14 @@
 # Swagger 3.0.0
-__API documentation tools__
+__API documentation tools__ <p>
 Swagger 3.0.0 is based on [OpenApi Specification](https://swagger.io/docs/specification/about/).
 
 ## Available Tools
-  - [__Swagger Editor__](https://swagger.io/swagger-editor/)
+  - [__Swagger Editor__](https://swagger.io/swagger-editor/):
      Clean and efficient open source editor for designing, describing and documenting API
 
-  - [__Swagger Codegen__](https://swagger.io/swagger-codegen/)
+  - [__Swagger Codegen__](https://swagger.io/swagger-codegen/):
     Generate server stub and client sdk from swagger specifications.
-  - [__Swagger UI__](https://swagger.io/swagger-ui/)
+  - [__Swagger UI__](https://swagger.io/swagger-ui/):
     Generate visual documentation of API from swagger specifications.
 
 ## Getting Started
@@ -21,7 +21,7 @@ Swagger 3.0.0 is based on [OpenApi Specification](https://swagger.io/docs/specif
         ```shell
             python -m SimpleHTTPServer
         ```
-        __OR__
+        __OR__ <p>
         Installation using http-server
         ```shell
             npm install -g http-server
@@ -30,8 +30,8 @@ Swagger 3.0.0 is based on [OpenApi Specification](https://swagger.io/docs/specif
             http-server swagger-editor
         ```
     
-2. __Writing API Specification__
-    Learn writing your first API specification from it's [official docs](https://swagger.io/docs/specification/basic-structure/).
+2. __Writing API Specification__ <br/>
+    Learn writing your first API specification from it's [official docs](https://swagger.io/docs/specification/basic-structure/). <br/>
     You can try it even from web version of [swagger editor](http://editor.swagger.io/).
     
 3.  __Swagger UI__
@@ -41,7 +41,7 @@ Swagger 3.0.0 is based on [OpenApi Specification](https://swagger.io/docs/specif
     * Open the dist folder
     * Run the dist/index.html file on a browser or place the dist folder inside your server.
 
-4. __Changing default API specification__
+4. __Changing default API specification__ <br/>
 By default, you can see Petstore API docs. To change it to your API specification follow these steps.
     * In general, to do so, you would need to pass a constructor URL of the specification you wish to make as the default.
         ```JS
