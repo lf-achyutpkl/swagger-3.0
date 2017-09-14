@@ -1,51 +1,24 @@
-# Swagger 3.0.0
-__API documentation tools__ <p>
-Swagger 3.0.0 is based on [OpenApi Specification](https://swagger.io/docs/specification/about/).
+# Swagger UI for multiple projects
+__Integrating multiple API docs in single page__ <p>
 
-## Available Tools
-  - [__Swagger Editor__](https://swagger.io/swagger-editor/):
-     Clean and efficient open source editor for designing, describing and documenting API
+## Usage
 
-  - [__Swagger Codegen__](https://swagger.io/swagger-codegen/):
-    Generate server stub and client sdk from swagger specifications.
-  - [__Swagger UI__](https://swagger.io/swagger-ui/):
-    Generate visual documentation of API from swagger specifications.
+* Clone microservices branch and navigate to swagger-ui folder in your local machine
+* Open index.html file
+* Update path to your config file i.e. YOUR_CONFIG_FILE_URL. For example,
+  ```JS
+    const YOUR_CONFIG_FILE_URL = 'https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/microservices/swagger-ui/config.json';
+  ```
 
-## Getting Started
-1. __Install Swagger Editor__
-    > Try web version of swagger editor first: [swagger editor online](http://editor.swagger.io/)
-    
-   *  [Node JS](https://nodejs.org/en/) must be installed before installing Swagger Editor.
-   *  Download latest release of swagger editor from it's [github repo](https://github.com/swagger-api/swagger-editor/releases).
-   *  Deploy _swagger-editor_ folder using any http server i.e 
-        ```shell
-            python -m SimpleHTTPServer
-        ```
-        __OR__ <p>
-        Installation using http-server
-        ```shell
-            npm install -g http-server
-            https://github.com/swagger-api/swagger-editor/archive/v3.1.7.zip
-            unzip swagger-editor.zip
-            http-server swagger-editor
-        ```
-    
-2. __Writing API Specification__ <br/>
-    Learn writing your first API specification from it's [official docs](https://swagger.io/docs/specification/basic-structure/). <br/>
-    You can try it even from web version of [swagger editor](http://editor.swagger.io/).
-    
-3.  __Swagger UI__
-    * Go to the [GitHub repository](https://github.com/swagger-api/swagger-ui) of the Swagger UI project
-    * Clone or download the zip file of the repository
-    * Go to the folder containing the Swagger UI project in your local machine
-    * Open the dist folder
-    * Run the dist/index.html file on a browser or place the dist folder inside your server.
+  > Your config file must match following pattern:
+  ```JS
+    {
+      "default": "default service yaml file path",
+      "service": {
+        "service1": "service1 yaml file path",
+        "service2": "service2 yaml file path"
+      }
+    }
 
-4. __Changing default API specification__ <br/>
-By default, you can see Petstore API docs. To change it to your API specification follow these steps.
-    * In general, to do so, you would need to pass a constructor URL of the specification you wish to make as the default.
-        ```JS
-            window.swaggerUi = new SwaggerUi({
-                url: 'https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/master/api.yaml'
-            });
-        ```
+    //For single project, just add default url.
+  ```
