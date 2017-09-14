@@ -1,0 +1,7 @@
+{
+	"default" : "https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/master/api.yaml",
+	"service": {
+		"Old API": "https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/a6e1ec1a9439eece097541600641a2a6e944d986/swagger.yaml",
+		"New API": "https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/master/api.yaml"
+	}
+}
