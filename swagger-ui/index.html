@@ -71,23 +71,58 @@
 <script src="./swagger-ui-standalone-preset.js"> </script>
 <script>
 window.onload = function() {
+
+  /*
+    {
+      "default": "default url of yaml file",
+      "service": {
+        "service1": "service1 yaml file path",
+        "service2": "service2 yaml file path"
+      }
+    }
+  */
+  const YOUR_CONFIG_FILE_URL = 'https://raw.githubusercontent.com/lf-achyutpkl/swagger-3.0/microservices/swagger-ui/config.json';
   
   // Build a system
-  const ui = SwaggerUIBundle({
-    url: "./swagger-3.0/api.yaml",
-    dom_id: '#swagger-ui',
-    deepLinking: true,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
-  })
+  fetch(YOUR_CONFIG_FILE_URL)
+    .then((response) => response.json())
+    .then((config) => {
 
-  window.ui = ui
+      if(!isConfigurationFileValid(config)){
+        return;
+      }
+
+      const ui = SwaggerUIBundle({
+        url: "http://petstore.swagger.io/v2/swagger.json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout",
+        config: config
+      })
+
+      window.ui = ui
+    }).catch(error => {
+      console.error(error);
+      return;
+    })
+
+    /**
+    * Validate configuration file.
+    */
+    function isConfigurationFileValid(config){
+      if(!config || config.default === '' || config.default === undefined){
+        console.error('Invalid configuration file.');
+        return false;
+      }
+      return true;
+    }
 }
 </script>
 </body>
