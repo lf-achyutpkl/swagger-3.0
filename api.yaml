@@ -14,3 +14,15 @@ components:
   schemas:
     User:
       $ref: './schemas/user.yaml#/User'
+
+securityDefinitions:
+  BearerAuth:
+    description: |
+      Bearer: xxxxxx.yyyyyyy.zzzzzz
+    type: apiKey
+    in: header
+    name: Authorization
+
+
+security:
+  - BearerAuth: []
